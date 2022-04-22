@@ -15,7 +15,6 @@ install_docker () {
         sudo apt install -y docker-ce
         sudo usermod -aG docker $USER
         echo "Docker Installed"
-        install_docker_compose
     fi
 }
 
@@ -85,6 +84,7 @@ finish_display_info () {
 # Invoke your function
 printf "Poseidon Install Script\n"
 install_docker
+install_docker_compose
 install_poseidon_server
 install_poseidon_ui
 echo "Installation Complete"
