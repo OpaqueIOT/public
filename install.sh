@@ -75,11 +75,11 @@ finish_display_info () {
     IP=$(curl -s https://ipinfo.io/ip)
     PASS="$(get_poseidon_password)"
     printf "\n ==== Poseidon Server & UI Successfully Installed! ==== \n\n"
-    printf "API Server at $IP:8080\n"
-    printf "IOT Server at $IP:22048\n\n"
+
 
     printf "Web UI accessable at http://$IP\n"
     printf "Default admin password is $PASS\n"
+    printf "WARNING: Please modify the default environment variables in /etc/poseidon/.env\n"
 
 }
 # Invoke your function
