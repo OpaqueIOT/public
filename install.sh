@@ -29,9 +29,7 @@ install_docker_compose () {
 get_poseidon_password () {
         cd /etc/poseidon
         var=$(sudo docker compose logs | grep "Created initial user admin with password:")
-        prefix="poseidon-app-1  | [mongo] Created initial user admin with password: "
-        suffix=""
-        local foo=${var#"$prefix"}
+        local foo=`echo $var | cut -c 68-`
         echo $foo
 }
 install_poseidon_server () {
