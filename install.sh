@@ -52,8 +52,6 @@ install_poseidon_server () {
         echo "Poseidon Server Downloaded Successfully, installing & starting."
         sudo docker compose up --detach
         echo "Poseidon Server Started"
-        result="$(get_poseidon_password)"
-        echo "default admin password is $result"
     fi
 }
 install_poseidon_ui () {
