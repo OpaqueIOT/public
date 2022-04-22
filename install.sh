@@ -21,10 +21,15 @@ install_docker () {
 
 install_docker_compose () {
     echo "Installing Docker Compose"
-    sudo mkdir -p ~/.docker/cli-plugins/
-    curl -SL https://github.com/docker/compose/releases/download/v2.4.1/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
-    sudo chmod +x ~/.docker/cli-plugins/docker-compose
-    echo "Docker Compose Installed"
+    if [ -d ~/.docker/cli-plugins/ ]
+    then
+        echo "Docker Compose is already installed, continuing"
+    else
+        sudo mkdir -p ~/.docker/cli-plugins/
+        curl -SL https://github.com/docker/compose/releases/download/v2.4.1/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+        sudo chmod +x ~/.docker/cli-plugins/docker-compose
+        echo "Docker Compose Installed"
+    fi
 }
 get_poseidon_password () {
         cd /etc/poseidon
